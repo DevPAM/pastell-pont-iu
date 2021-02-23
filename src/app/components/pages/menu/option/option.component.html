@@ -1,0 +1,31 @@
+<div class="container">
+
+    <div class="option" (click)="option.switch()">
+
+      <div [ngClass]="{
+        'option_icon' : option.type == 'SUB-OPTION',
+        'option_icon_selected' : option.type == 'SUB-OPTION' && option.isSelected,
+        'option_icon_hide' : option.type == 'LINK'
+      }">
+        <img src="./assets/icons/right-arrow.png" alt="icon-sub-option" />
+      </div>
+
+      <div class="option_name" [ngStyle]="" *ngIf="option.type == 'SUB-OPTION'">
+        <span class="sub_option_text">{{option.name}}</span>
+      </div>
+
+      <div class="option_name" *ngIf="option.type == 'LINK'">
+        <a routerLink="{{option.link}}">{{option.name}}</a>
+      </div>
+
+    </div>
+
+    <div *ngIf="option.type == 'SUB-OPTION'" [ngClass]="option.isSelected ? option.cssClass : option.cssClass+'_hidden'">
+
+      <div class="" *ngFor="let opt of option.options">
+        <app-option [option]="opt"></app-option>
+      </div>
+
+    </div>
+
+</div>
