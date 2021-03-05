@@ -1,20 +1,16 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PagesComponent } from './components/pages/pages.component';
-import { ListDocumentsComponent } from './components/pages/list-documents/list-documents.component';
-// import { AuthenticationComponent } from './components/authentication/authentication.component';
-
+import { AuthenticationComponent } from './components/pages/authentication/authentication.component';
 
 const routes: Routes = [
-  { path : 'index', component: PagesComponent },
-  { path : '', redirectTo: '/index', pathMatch: 'full' },
-  { path : 'documents/:id', component: ListDocumentsComponent },
-  // { path : 'authentication', component: AuthenticationComponent }
+  { path : '', redirectTo: '/authentication', pathMatch: 'full' },
+  { path : 'authentication', component: AuthenticationComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), FormsModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

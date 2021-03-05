@@ -1,0 +1,56 @@
+<div class="input-container">
+
+  <div [ngClass]="model.hasFocus ? (model.inError ? 'cover-input input-focus-error' : 'cover-input input-focus') : (model.inError ? 'cover-input input-unfocus-error' : 'cover-input input-unfocus')">
+
+    <div class="input">
+
+      <div [ngClass]="!model.placeholderIsUp ? 'placeholder' : 'placeholder-selected'">
+        <span [ngClass]="model.inError ? 'color-error' : (model.hasFocus ? 'color-focus' : '')">{{model.placeholder}}</span>
+      </div>
+
+      <div class="input-text">
+
+        <div class="icon">
+
+          <img src="{{
+            model.inError ?
+              '/assets/icons/red_padlock.png' :
+            (model.hasFocus ?
+              '/assets/icons/blue_padlock.png' :
+              '/assets/icons/padlock.png'
+            )}}" alt="padlock" class="input-icon"/>
+
+        </div>
+
+        <div class="inside-container-input">
+            <input type="text" (focusout)="model.onFocusOut()" (focus)="model.onFocus()" [(ngModel)]="model.value" />
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div [ngClass]="model.inError ? 'message-container' : 'message-container-hidden'">
+
+    <div class="message-icon">
+      <img src="assets/icons/alert.png" alt="caution" />
+    </div>
+    <div class="message">{{model.message}}</div>
+  </div>
+
+</div>
+
+<!--
+<div class="">
+  <span>A FOCUS : </span>
+  <span>{{model.hasFocus}}</span>
+</div>
+
+<div class="">
+  <span>MOT DE PASSE VISIBLE : </span>
+  <span>{{model.isPasswordVisible}}</span>
+</div>
+-->

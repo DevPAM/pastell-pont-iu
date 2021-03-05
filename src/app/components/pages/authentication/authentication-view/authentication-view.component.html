@@ -1,0 +1,43 @@
+<div class="view-container">
+
+  <div class="logo" align="center">
+    <img src="/assets/icons/bridges.png" alt="bridge" />
+  </div>
+
+
+  <div class="title">
+    <span>Pastell-Ponts</span>
+  </div>
+
+  <div class="sub-title">
+    <span>Bienvennue</span>
+  </div>
+
+  <div class="form">
+
+    <app-input-text [model]="identifier" ></app-input-text>
+    <app-input-password [model]="password" ></app-input-password>
+
+  </div>
+
+  <div class="password-link">
+
+    <div class="link">
+      <span>Mot de passe oublié ?</span>
+    </div>
+
+  </div>
+
+  <div class="validation">
+
+    <div class="link inscription" (click)="goToInscription()">
+      <span>Créer un compte</span>
+    </div>
+
+    <button class="button float-right">
+      <span>Connexion</span>
+    </button>
+
+  </div>
+
+</div>

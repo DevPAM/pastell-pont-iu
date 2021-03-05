@@ -1,0 +1,43 @@
+<div class="view-container">
+
+  <div class="logo" align="center">
+    <img src="/assets/icons/bridges.png" alt="bridge" />
+  </div>
+
+  <div class="title">
+    <span>Pastell-Ponts</span>
+  </div>
+
+  <div class="sub-title">
+    <span>Créer votre compte</span>
+  </div>
+
+  <div class="form">
+
+    <app-input-text [model]="model.identifier"></app-input-text>
+
+    <div class="form-line">
+      <div class="line"><app-input-text [model]="model.name" ></app-input-text></div>
+      <div class="line line-right"><app-input-text [model]="model.firstname" ></app-input-text></div>
+    </div>
+
+    <app-input-mail [model]="model.mail"></app-input-mail>
+
+    <app-input-password [model]="model.password" ></app-input-password>
+    <app-input-password [model]="model.passwordConfirmation" ></app-input-password>
+
+  </div>
+
+  <div class="validation">
+
+    <div class="link inscription" (click)="goToConnexion()">
+      <span>Se connecter à votre compte</span>
+    </div>
+
+    <button class="button float-right" (click)="signIn()">
+      <span>Envoyer votre demande d'inscription</span>
+    </button>
+
+  </div>
+
+</div>

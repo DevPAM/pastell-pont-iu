@@ -1,0 +1,99 @@
+.view-container {
+  padding: 36px 40px 36px;
+  width: calc(448px - 80px);
+  background-color: #FFFFFF;
+  min-height: calc(100% - 72px);
+}
+
+.logo > img {
+  width: 50px;
+}
+
+
+.title {
+  font-size: 24px;
+  /*margin-top: 16px;*/
+  box-sizing: inherit;
+  line-height: 1.3333;
+}
+
+.sub-title {
+  /*margin-top: 8px;*/
+  font-size: 16px;
+  line-height: 1.5;
+  padding-top: 8px;
+  padding-bottom: 0;
+  letter-spacing: .1px;
+}
+
+.title,
+.sub-title {
+  font-weight: 400;
+  text-align: center;
+}
+
+.form {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.validation {
+  width: 100%;
+  display: inline-block;
+}
+
+.link,
+.button {
+  padding: 10px;
+  cursor: pointer;
+  display: inline;
+  font-weight: 530;
+  border-radius: 5px;
+  font-family: Noto ,arial,sans-serif;
+}
+
+.link {
+  color: #007cc0;
+  font-size: 14px;
+}
+
+.password-link {
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.link {
+  background-color: #FFFFFF;
+  transition: background-color .2s;
+}
+
+.link:hover {
+  background-color: #F0F9FC;
+  transition: background-color .2s;
+}
+
+.inscription {
+  float: left;
+  padding-top: 10px;
+}
+
+.button {
+  width: auto;
+  border: none;
+  color: #FFFFFF;
+  font-size: .875rem;
+  text-transform: none;
+  background-color: #007cc0;
+  letter-spacing: .0107142857em;
+  transition: background-color .2s;
+}
+
+.button:hover {
+  background-color: #00527E;
+  transition: background-color .2s;
+}
+
+.float-right {
+  float: right;
+}
