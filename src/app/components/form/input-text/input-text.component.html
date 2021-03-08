@@ -5,7 +5,7 @@
     <!--
     <div [ngClass]="model.hasFocus ? (model.inError ? 'input input-focus-error' : 'input input-focus') : (model.inError ? 'input input-unfocus-error' : 'input input-unfocus')">
     -->
-    <div class="input">
+    <div [ngClass]="model.inError ? 'input-error' : 'input'">
 
       <div [ngClass]="!model.placeholderIsUp ? 'placeholder' : 'placeholder-selected'">
         <span [ngClass]="model.inError ? 'color-error' : (model.hasFocus ? 'color-focus' : '')">{{model.placeholder}}</span>
@@ -25,7 +25,7 @@
       <img src="assets/icons/alert.png" alt="caution" />
     </div>
     <div class="message">{{model.message}}</div>
-    
+
   </div>
 
 </div>

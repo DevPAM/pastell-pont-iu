@@ -1,4 +1,8 @@
+<app-loader [model]="model.loader"></app-loader>
+
 <div class="view-container">
+
+  <div [ngClass]="model.loader.state == 0 ? 'sail-visible' : 'sail-invisible'"></div>
 
   <div class="logo" align="center">
     <img src="/assets/icons/bridges.png" alt="bridge" />
@@ -35,7 +39,7 @@
     </div>
 
     <button class="button float-right" (click)="signIn()">
-      <span>Envoyer votre demande d'inscription</span>
+      <span>S'inscrire</span>
     </button>
 
   </div>

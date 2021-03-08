@@ -8,7 +8,6 @@ import { AuthenticationService } from './../../../services/authentication/authen
   styleUrls: ['./authentication.component.css']
 })
 export class AuthenticationComponent implements OnInit {
-
   /** The view visible. */
   public visibleView: string;
 

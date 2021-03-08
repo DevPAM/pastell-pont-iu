@@ -1,6 +1,8 @@
 import { FormModel } from './../../../form/form.model';
+import { LoaderModel } from './../../../loader/loader.model';
 import { InputTextModel } from './../../../form/text/input-text.model';
 import { InputMailModel } from './../../../form/text/input-mail.model';
+import { LoaderStateEnumModel } from './../../../loader/loader-enum.model';
 import { InputPasswordModel } from './../../../form/text/input-password.model';
 /** Model form model class for the user inscription.  */
 export class InscrtiptionFormModel implements FormModel {
@@ -16,14 +18,25 @@ export class InscrtiptionFormModel implements FormModel {
   public password: InputPasswordModel;
   /** The user password confirmation. */
   public passwordConfirmation: InputPasswordModel;
+  /** The loader state. */
+  public loader: LoaderModel;
   /** Initialize a new instance of 'InscrtiptionFormModel' class. */
   constructor() {
-    this.identifier = new InputTextModel('Votre maticule', true, '');
     this.name = new InputTextModel('Votre nom', true, '');
     this.mail = new InputMailModel('Votre email', true, '');
     this.firstname = new InputTextModel('Votre prénom', true, '');
+    this.loader = new LoaderModel(LoaderStateEnumModel.INVISIBLE);
+    this.identifier = new InputTextModel('Votre maticule', true, '');
     this.password = new InputPasswordModel('Votre mot de passe', true, '');
     this.passwordConfirmation = new InputPasswordModel('Resaisissez votre mot de passe', true, '');
+  }
+  /** Indicates that the form in under work. */
+  public workOn(): void {
+    this.loader.setState(LoaderStateEnumModel.VISIBLE);
+  }
+  /** Indicates that the form is not under work. */
+  public notWorkOn(): void {
+    this.loader.setState(LoaderStateEnumModel.INVISIBLE);
   }
   /** Checks if the form is valid.
     * @return true if the form is valid; otherwise false. */
@@ -50,6 +63,7 @@ export class InscrtiptionFormModel implements FormModel {
   private isInputIdentifierValid(): boolean {
     var result : boolean = this.identifier.isEmpty();
     if(result) this.identifier.setError('Veuillez saisir votre matricule svp.');
+    else this.identifier.resetError();
     return result;
   }
   /** Check if the input name is valid.
@@ -72,8 +86,7 @@ export class InscrtiptionFormModel implements FormModel {
     * @return true if the mail input is valid; otherwise false. */
   private isInputMailValid(): boolean {
     var result : boolean = this.mail.isEmpty();
-    console.log('mail :' + result + ' ' + this.mail.isMailValid());
-
+    //
     if(result) this.mail.setError('Veuillez saisir votre mot de passe svp.');
     else if(!this.mail.isMailValid()) this.mail.setError("Votre adresse mail n'est pas valide.");
     else this.mail.resetError();

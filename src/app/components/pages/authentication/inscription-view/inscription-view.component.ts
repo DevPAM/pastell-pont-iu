@@ -1,3 +1,4 @@
+import {Router} from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 
 import { InputTextModel } from './../../../../models/form/text/input-text.model';
@@ -18,7 +19,7 @@ export class InscriptionViewComponent {
   public model: InscrtiptionFormModel;
   /** Initialize a new instance of 'InscriptionViewComponent' class.
     * @param authenticationService The component service. */
-  constructor(private authenticationService : AuthenticationService) {
+  constructor(private authenticationService : AuthenticationService, private router: Router) {
     this.model = new InscrtiptionFormModel();
   }
   /** The the authentication's form. */
@@ -27,12 +28,19 @@ export class InscriptionViewComponent {
   }
   /** Go to the connexion view. */
   public goToConnexion(): void {
-    //this.cleanForm();
     this.model.cleanForm();
+    this.model.notWorkOn();
     this.authenticationService.gotToConnexion();
   }
   /** Send the form to the server. */
   public signIn(): void {
-    this.model.isFormValid();
+    this.model.workOn();
+    if(!this.model.isFormValid()) {
+      this.model.notWorkOn();
+      return;
+    }
+    // Try to sign in to the API.
+    this.authenticationService.signIn(this.model.identifier.value, this.model.name.value, this.model.firstname.value, this.model.mail.value, this.model.password.value)
+    .subscribe(response => { console.log(response); if(response.success) { return; } else { return; } } );
   }
 }

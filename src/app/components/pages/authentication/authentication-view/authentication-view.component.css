@@ -5,6 +5,25 @@
   min-height: calc(100% - 72px);
 }
 
+.sail-visible,
+.sail-invisible {
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: .2;
+  height: 100%;
+  position: absolute;
+  background-color: #eaecee;
+}
+
+.sail-visible {
+  z-index: 100;
+}
+
+.sail-invisible {
+  z-index: -10;
+}
+
 .logo > img {
   width: 50px;
 }

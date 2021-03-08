@@ -1,0 +1,42 @@
+.container-loader,
+.container-loader-invisible {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  min-height: 5px;
+  max-height: 5px;
+  position: relative;
+
+}
+
+.container-loader {
+  background-color: #F8F9Fa;
+}
+
+.container-loader-invisible {
+  background-color: #FFFFFF;
+}
+
+.bar {
+  top: 0;
+  width: 124px;
+  height: 100%;
+  position: absolute;
+  animation: 1.5s linear 1s infinite running slidein ;
+}
+
+.container-loader > .bar {
+  background-color: #1a73e8;
+}
+
+.container-loader-invisible > .bar {
+    background-color: #FFFFFF;
+}
+
+@keyframes slidein {
+  from { left: -124px; }
+  to {
+    left: 100%;
+    transform: translateX(100%);
+  }
+}

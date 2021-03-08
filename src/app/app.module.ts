@@ -12,6 +12,10 @@ import { InscriptionViewComponent } from './components/pages/authentication/insc
 import { InputTextComponent } from './components/form/input-text/input-text.component';
 import { InputPasswordComponent } from './components/form/input-password/input-password.component';
 import { InputMailComponent } from './components/form/input-mail/input-mail.component';
+import { LoaderComponent } from './components/pages/loader/loader.component';
+import { PageBaseComponent } from './components/pages/page-base/page-base.component';
+import { HeaderComponent } from './components/pages/header/header.component';
+import { MenuComponent } from './components/pages/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { InputMailComponent } from './components/form/input-mail/input-mail.comp
     InscriptionViewComponent,
     InputTextComponent,
     InputPasswordComponent,
-    InputMailComponent
+    InputMailComponent,
+    LoaderComponent,
+    PageBaseComponent,
+    HeaderComponent,
+    MenuComponent
   ],
   imports: [
     FormsModule,

@@ -1,4 +1,8 @@
+<app-loader [model]="model.loader"></app-loader>
+
 <div class="view-container">
+
+  <div [ngClass]="model.loader.state == 0 ? 'sail-visible' : 'sail-invisible'"></div>
 
   <div class="logo" align="center">
     <img src="/assets/icons/bridges.png" alt="bridge" />
@@ -15,8 +19,8 @@
 
   <div class="form">
 
-    <app-input-text [model]="identifier" ></app-input-text>
-    <app-input-password [model]="password" ></app-input-password>
+    <app-input-text [model]="model.identifier" ></app-input-text>
+    <app-input-password [model]="model.password" ></app-input-password>
 
   </div>
 
@@ -34,7 +38,7 @@
       <span>Créer un compte</span>
     </div>
 
-    <button class="button float-right">
+    <button class="button float-right" (click)="authenticate()">
       <span>Connexion</span>
     </button>
 
